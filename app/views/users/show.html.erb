@@ -1,0 +1,21 @@
+<!-- shows just the user's tasks  -->
+
+<h1>Welcome, <%= @user.username %>  </h1>
+
+<h2>Here are your tasks:</h2>
+
+
+<!-- Order tasks by due date -->
+<!-- filter by project -->
+<ul>
+  <% @tasks.all.each do |task| %>
+
+    <li><%= task.description %></li>
+  <% end  %>
+</ul>
+
+  <!-- link to create new task  -->
+  
+
+  <!--  link to view all projects and tasks -->
+  <%= link_to "See all Projects/Tasks", projects_path %>
