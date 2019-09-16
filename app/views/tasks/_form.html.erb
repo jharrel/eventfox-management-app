@@ -33,8 +33,16 @@
 
 
   <div class="form-group">
-    <%= f.label :project_id, "Select the Project for this task:" %><br>
+    <%= f.label :project_id, "Select the Project for this task below:" %> 
+
+    <br>
+
+
+    
     <%= f.collection_select :project_id, Project.all, :id, :name %>
+
+  
+           
   </div>
 
 
@@ -50,7 +58,8 @@
 
 
     <div class="actions">
-      <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= f.submit "Submit", class: "btn btn-primary" %> 
+
     </div>
   <% end  %>
 </div>

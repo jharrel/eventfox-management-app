@@ -2,9 +2,7 @@
 <% if @user %>
 <div class="container">
   <h1>Welcome, <%= @user.username if @user%>  </h1><br>
-  <h2>Here are your tasks:</h2><br>
-  <%= link_to "Give yourself a new task!", new_user_task_path(@user) %>
-  <br><br>
+  <h2>Here are your tasks:</h2>
 </div>
 <% end  %>
 
@@ -12,12 +10,12 @@
   <%= render 'tasklist', :locals => {:@tasks => @tasks} %>
 </div>
 
-
+<%= link_to "Give yourself a new task!", new_user_task_path(@user), class: "btn btn-md btn-info btn-primary" %>
 <br><br>
-
 <div class="container">
 
   <h2>Completed Tasks</h2>
 
   <%= render 'completed', :locals => {:@tasks => @tasks} %>
 </div>
+
