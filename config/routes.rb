@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/tasks/:id/complete', to: "tasks#complete"
 
+  delete 'tasks/:id', to: "tasks#destroy", as: "delete_task"
+
   #get 'tasks/:id/delete', to: "tasks#delete"
 
   get '/auth/facebook/callback' => 'sessions#create'
