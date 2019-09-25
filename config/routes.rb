@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :tasks
 
+  #get '/users/:id/tasks' to: 'users#show'
 
   get '/signout', to: 'sessions#destroy'
 
