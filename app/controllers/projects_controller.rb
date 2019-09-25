@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :require_login
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  
   def index
       @projects = Project.all
   end
@@ -14,11 +15,9 @@ class ProjectsController < ApplicationController
   end
 
   def create
-
     @project = Project.new(project_params)
     if @project.save
       redirect_to projects_path
-      
     else
       render :new
     end
@@ -29,7 +28,6 @@ class ProjectsController < ApplicationController
   end
 
   def update
-
     if @project.update(project_params)
       redirect_to projects_path
     else
@@ -38,7 +36,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    #@project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
   end
@@ -46,6 +44,7 @@ class ProjectsController < ApplicationController
   private
 
   def set_project
+    #instance of project is created by finding the project in params :id which is the unique ID for this project
     @project = Project.find(params[:id])
   end
 
