@@ -36,10 +36,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
-=======
-    #@project = Project.find(params[:id])
->>>>>>> 58d4f89ff31e7f1dfb4d979de4fca86518984a15
     @project.destroy
     redirect_to projects_path
   end
