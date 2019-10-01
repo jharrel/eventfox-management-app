@@ -22,8 +22,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
        redirect_to projects_path
-    else
-      render :new
+    
     end
   end
 
@@ -34,8 +33,8 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       redirect_to projects_path
-    else
-      render :edit
+    #else
+      #render :edit
     end
   end
 
