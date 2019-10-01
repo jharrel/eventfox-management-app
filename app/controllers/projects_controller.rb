@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       redirect_to projects_path
-      
     else
       render :new
     end
@@ -38,7 +37,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
     @project.destroy
     redirect_to projects_path
   end

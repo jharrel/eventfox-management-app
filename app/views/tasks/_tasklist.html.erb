@@ -17,6 +17,7 @@
       <% if !task.completed %>
         <tr scope="row">
           <td><%= task.description %></td>
+          
           <td> <%= task.project.name %> </td>
           <td> <%= task.due_date.strftime("%B %d, %Y") unless task.due_date.nil?  %> </td>
           <td> <%= task.user.username  %> </td>

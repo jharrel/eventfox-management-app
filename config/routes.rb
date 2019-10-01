@@ -30,6 +30,4 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   # get 'projects/:id/delete', to: "projects#delete"
-
-  #get '/users/most_projects', to: "users#most_projects"
 end

@@ -1,19 +1,8 @@
 class UsersController < ApplicationController
 
-
-  def most_projects
-    @user = User.most_projects
-  end
-
-
   def new
-    if logged_in
-      redirect_to projects_path
-      flash[:notice] = "You are already logged in."
-    else
-      @user = User.new
+       @user = User.new
       render layout: 'sessions'
-    end
   end
 
   def create
