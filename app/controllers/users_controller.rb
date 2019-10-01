@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
 
   def new
-<<<<<<< HEAD
        @user = User.new
-=======
-      @user = User.new
->>>>>>> 58d4f89ff31e7f1dfb4d979de4fca86518984a15
       render layout: 'sessions'
   end
 
