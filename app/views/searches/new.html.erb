@@ -1,0 +1,23 @@
+<h1>Advanced Search</h1>
+
+<%= form_for @search, html: {class: "pure-form"} do |s|  %>
+
+    <div class="field">
+        <%= s.label :project %> <br>
+        <%= s.text_field :project %> 
+    </div>
+
+    <div class="field">
+        <%= s.label :task %> <br>
+        <%= s.text_field :task %> 
+    </div>
+
+    <div class="actions">
+        <%= s.submit "Search", class: "pure-button pure-button-primary" %>
+    </div>
+
+    <% end %>
+
+    <p>
+        <%= link_to 'Back', projects_path %>
+    </p>

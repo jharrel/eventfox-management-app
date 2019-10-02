@@ -1,5 +1,18 @@
 <h1>Projects</h1>
 
+<div>
+<h4>Search for a Project</h4>
+
+<%= form_tag projects_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+
+
+
+<br>
+
   <% @projects.all.each do |project| %>
     <div class="container">
 

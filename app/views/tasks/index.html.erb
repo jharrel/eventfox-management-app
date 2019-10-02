@@ -8,12 +8,22 @@
 </div>
 <% end  %>
 
+<!--
+<div>
+<h4>Search for a Task</h4>
+
+<%= form_tag 'tasks#index', :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</div>
+<br>
+-->
+
 <div class="container">
   <%= render 'tasklist', :locals => {:@tasks => @tasks} %>
 </div>
 
-
-<br><br>
 
 <div class="container">
 
@@ -21,3 +31,4 @@
 
   <%= render 'completed', :locals => {:@tasks => @tasks} %>
 </div>
+
