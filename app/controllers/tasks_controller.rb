@@ -3,26 +3,41 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy, :complete]
 
   def index
-    # gives the user id display. Checks the user params for the ID associated with login user. Displays the users tasks
+
+    if params[:user_id]
+      if User.find(params[:user_id]) == current_user
         @user = User.find(params[:user_id])
         @tasks = @user.tasks
+      else
+        redirect_to projects_path
+        flash[:notice] = "Unauthorized Access."
+      end
+    else
+      @tasks = Task.all
+    end
   end
 
   def new
     if params[:user_id]
       @user = User.find(params[:user_id])
       @task = Task.new(user_id: @user.id)
+
     else
       @user = nil
       @task = Task.new
     end
+
+
   end
 
   def create
+
     @task = Task.new(task_params)
+
     if @task.save
        redirect_to projects_path
-    
+    else
+      render :new
     end
   end
 
@@ -31,11 +46,14 @@ class TasksController < ApplicationController
   end
 
   def update
+
     if @task.update(task_params)
+
       redirect_to projects_path
-    #else
-      #render :edit
+    else
+      render :edit
     end
+
   end
 
   def complete
@@ -45,11 +63,6 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    if @task.destroy
-      flash[:success] = "Task was deleted."
-    else
-      flash[:error] = "Task was not deleted"
-    end
     redirect_to projects_path
   end
 

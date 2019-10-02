@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   def new
     if logged_in
       redirect_to projects_path
+      flash[:notice] = "You are already logged in."
     else
       @user = User.new
     end

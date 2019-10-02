@@ -4,11 +4,9 @@
 
 <h2>Here are your tasks:</h2>
 
-<% end %>
+
 <!-- Order tasks by due date -->
 <!-- filter by project -->
-
-<%= link_to "Create a new project", 'projects/new', class: "btn btn-lg btn-primary" %>    
 <ul>
   <% @tasks.all.each do |task| %>
 

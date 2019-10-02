@@ -1,5 +1,5 @@
-<br><br>
-<table class = "table table-striped" >
+<!-- This is the for the top section of /tasks -->
+  <table class = "table table-striped" >
     <thead class = "thead-dark">
       <tr>
         <th scope="col">Task</th>
@@ -12,16 +12,15 @@
     </thead>
     <tbody>
 
-    
+
     <% @tasks.all.each do |task| %>
       <% if !task.completed %>
         <tr scope="row">
           <td><%= task.description %></td>
-          
           <td> <%= task.project.name %> </td>
           <td> <%= task.due_date.strftime("%B %d, %Y") unless task.due_date.nil?  %> </td>
           <td> <%= task.user.username  %> </td>
-         <td> <%= link_to "Edit", edit_task_path(task), class: "btn btn-sm btn-info btn-primary" %> / <%=  link_to 'Delete', delete_task_path(task), class: "btn btn-sm btn-danger btn-primary", method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
+          <td> <%= link_to "Edit", edit_task_path(task) %> / <%=  link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' }  %> </td>
           <td> <a class="btn btn-outline-success" href="/tasks/<%= task.id %>/complete">Complete </a>  </td>
         </tr>
       <% end %>

@@ -1,19 +1,19 @@
-<h1>Hello, <%= @user.username %>  </h1>
-
 <!-- shows just the user's tasks  -->
-<div>
-  <h2>Here are your tasks:</h2>
+<% if @user %>
+<div class="container">
+  <h1>Welcome, <%= @user.username if @user%>  </h1><br>
+  <h2>Here are your tasks:</h2><br>
+  <%= link_to "Give yourself a new task!", new_user_task_path(@user) %>
+  <br><br>
 </div>
-<%= link_to "Give yourself a new task!", new_user_task_path(@user), class: "btn btn-md btn-info btn-primary" %>
-<%= link_to "Create a new project", '/projects/new', class: "btn btn-md btn-primary" %>    
-
-<br><br>
-
+<% end  %>
 
 <div class="container">
   <%= render 'tasklist', :locals => {:@tasks => @tasks} %>
 </div>
 
+
+<br><br>
 
 <div class="container">
 
@@ -21,4 +21,3 @@
 
   <%= render 'completed', :locals => {:@tasks => @tasks} %>
 </div>
-
